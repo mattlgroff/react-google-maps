@@ -265,6 +265,7 @@ declare module 'react-google-maps/lib/components/GoogleMap' {
         getBounds(): google.maps.LatLngBounds
         getCenter(): google.maps.LatLng
         getClickableIcons(): boolean
+        getData(): google.maps.Data
         getDiv(): Element
         getHeading(): number
         getMapTypeId(): google.maps.MapTypeId | string
@@ -428,20 +429,11 @@ declare module 'react-google-maps/lib/components/OverlayView' {
     import { Component, ReactNode } from 'react'
 
     export interface OverlayViewProps {
-        bounds?: google.maps.LatLngBounds | google.maps.LatLngBoundsLiteral
-        children?: ReactNode
-        getPixelPositionOffset?: (width: number, height: number) => { x?: number, y?: number }
         mapPaneName?: string
-        position?: google.maps.LatLng | google.maps.LatLngLiteral
+        children?: ReactNode
     }
 
     export default class OverlayView extends Component<OverlayViewProps> {
-        static FLOAT_PANE: string
-        static MAP_PANE: string
-        static MARKER_LAYER: string
-        static OVERLAY_LAYER: string
-        static OVERLAY_MOUSE_TARGET: string
-
         getPanes(): google.maps.MapPanes
         getProjection(): google.maps.MapCanvasProjection
     }
